@@ -1,0 +1,32 @@
+# ============================================================
+# 运行环境要求 / Runtime Requirements
+# ------------------------------------------------------------
+# ⚠ 本项目是 Node.js + Vue 项目,不是 Python 项目。
+#   依赖通过 npm 安装(见 package.json),本文件仅用于说明运行环境与依赖清单。
+#   安装命令: npm install
+# ============================================================
+
+# --- 运行时环境 ---
+# Node.js  >= 20.19  (推荐 22 LTS;Vite 8 要求 Node ^20.19 || >=22.12)
+# npm      >= 9      (随 Node 自带)
+# 浏览器    任意现代浏览器(Chrome / Edge / Firefox),需支持 WebGL2
+
+# --- 运行时依赖(运行时,npm 自动安装,见 package.json 的 dependencies)---
+vue@^3.5.34            # 前端框架
+three@^0.184.0         # 3D 渲染(WebGL)
+3d-force-graph@^1.80.0 # 知识星云力导向图(封装 three + d3-force-3d)
+echarts@^6.1.0         # HUD 小图(预留)
+gsap@^3.13.0           # 动效(预留)
+
+# --- 仅端到端验证脚本需要(dev,scripts/verify.mjs)---
+# puppeteer-core@^25.1.0   # 无头浏览器驱动(用系统已安装的 Chrome/Edge,不另下 Chromium)
+# Google Chrome 或 Microsoft Edge(可执行文件)  # verify.mjs 默认指向 Chrome
+
+# ============================================================
+# 快速开始
+#   npm install
+#   npm run dev        # 开发服务器 → http://localhost:5190/
+#   npm run build      # 生产构建 → dist/
+#   npm run preview    # 预览构建产物
+#   node scripts/verify.mjs   # (可选)端到端验证 + 截图
+# ============================================================

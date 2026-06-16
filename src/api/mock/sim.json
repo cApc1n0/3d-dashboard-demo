@@ -1,0 +1,22 @@
+{
+  "history": [
+    { "simulation_id": "SIM-2026-0612-42", "project_id": "PRJ-001", "status": "running",   "created_at": "2026-06-12T13:00:00Z" },
+    { "simulation_id": "SIM-2026-0612-38", "project_id": "PRJ-001", "status": "completed", "created_at": "2026-06-12T10:20:00Z" },
+    { "simulation_id": "SIM-2026-0611-21", "project_id": "PRJ-001", "status": "completed", "created_at": "2026-06-11T15:05:00Z" }
+  ],
+  "runStatus": {
+    "simulation_id": "SIM-2026-0612-42",
+    "runner_status": "running",
+    "current_round": 42,
+    "total_rounds": 100,
+    "twitter_actions_count": 1284,
+    "reddit_actions_count": 612,
+    "total_actions_count": 1896,
+    "active_agents": 3420,
+    "rumor_coverage": 0.387,
+    "sentiment_avg": -0.62,
+    "user_activity": 0.74,
+    "situation_score": 58.3,
+    "progress": 0.42
+  }
+}
