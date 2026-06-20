@@ -1,8 +1,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const props = defineProps({ scene: String, detail: Object })
-const emit = defineEmits(['switch'])
+const props = defineProps({ scene: String, mode: String, detail: Object })
+const emit = defineEmits(['switch', 'switch-mode'])
 
 // ---- 心跳 ECG(从 moodboard 移植,Canvas)----
 const hb = ref(null)
@@ -106,8 +106,10 @@ onUnmounted(() => {
         </div>
       </div>
       <div class="scene-switch">
-        <button :class="{ active: scene === 'dome' }" @click="emit('switch', 'dome')">态势穹顶</button>
-        <button :class="{ active: scene === 'nebula' }" @click="emit('switch', 'nebula')">知识星云</button>
+        <button :class="{ active: mode === 'situation' }" @click="emit('switch-mode', 'situation')">态势</button>
+        <button :class="{ active: mode === 'console' }" @click="emit('switch-mode', 'console')">操作台</button>
+        <button v-if="mode === 'situation'" :class="{ active: scene === 'dome' }" @click="emit('switch', 'dome')">态势穹顶</button>
+        <button v-if="mode === 'situation'" :class="{ active: scene === 'nebula' }" @click="emit('switch', 'nebula')">知识星云</button>
       </div>
     </div>
   </footer>

@@ -5,11 +5,13 @@ import LeftRail from './LeftRail.vue'
 import RightRail from './RightRail.vue'
 import SceneCanvas from './SceneCanvas.vue'
 import BottomBar from './BottomBar.vue'
+import ConsoleStage from './console/ConsoleStage.vue'
 import { dgApi, simApi, spiderApi, graphApi } from '@/api'
 import { riskColor } from '@/utils/risk'
 
-// 场景切换状态(穹顶 / 星云)
+// 场景切换状态(穹顶 / 星云) + 模式(态势 / 操作台)
 const scene = ref('dome')
+const mode = ref('situation')
 const loading = ref(true)
 const detail = ref(null)
 const decomp = ref(null)
@@ -69,7 +71,9 @@ onMounted(async () => {
         :loading="loading"
       />
       <RightRail :run-status="runStatus" :platform-stats="platformStats" :loading="loading" />
+      <!-- 操作台:覆盖在 .stage 上的绝对层(态势模式不渲染,WebGL 上下文随 SceneCanvas 保留) -->
+      <ConsoleStage v-if="mode === 'console'" />
     </main>
-    <BottomBar :scene="scene" :detail="detail" @switch="scene = $event" />
+    <BottomBar :scene="scene" :mode="mode" :detail="detail" @switch="scene = $event" @switch-mode="mode = $event" />
   </div>
 </template>
